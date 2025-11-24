@@ -4,23 +4,34 @@ import java.util.Random;
 
 public class Benchmark {
 
+    // number of operations
     public static int OPS = 1000000;
 
+    // Random object
     public static Random rand = new Random();
 
+    // main func
     public static void main(String[] args) {
 
+        // actions
         int reads = 15;
         int inserts = 80;
         int deletes = 5;
 
+        // warmup start time
         long warmupStart = System.nanoTime();
+        
+        // warmup run
         runOps(reads, inserts, deletes);
+        
+        // warmup elapsed time
         long warmupElapsed = System.nanoTime() - warmupStart;
         System.out.println("Warmup round:    "+String.format("%12s",warmupElapsed)+"ns");
 
+        // benchmark runs
         long[] elapsed = new long[10];
         for (int i = 0; i < 10; i++) {
+            // start time
             long startTime = System.nanoTime();
             runOps(reads, inserts, deletes);
             long estimated = System.nanoTime() - startTime;
@@ -43,11 +54,16 @@ public class Benchmark {
     }
 
     public static void runOps(int reads, int inserts, int deletes) {
+        // create new red-black tree
         RedBlackBST<Integer,Integer> tree = new RedBlackBST<Integer,Integer>();
+        
+        // total bound for inserts
         int insert_bound = reads + inserts;
 
+        // last used number
         int lastn = 0;
 
+        // perform operations 
         for(int i = 0; i < OPS; i++) {
             int v = rand.nextInt(100);
             if (v < reads) {
