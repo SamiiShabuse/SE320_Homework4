@@ -18,6 +18,7 @@ Attached to this assignment, you'll find ```RedBlackBST.java``` (the red-black t
 Please answer the following questions in a *text* document (either .txt or .md),
 but submit the whole directory structure as in prior homeworks. 
 
+My answers are written in answers.md
 
 1. A short (one paragraph) explanation of why the benchmark harness is structured as it is.  Why is there an initial run that isn't counted in the min/max/average?  Why are we measuring multiple runs?
 2. Reasonable operational profiles for use of the RedBlackBST in the following use cases.  Each of these profiles, for our purposes, is simply a percentage of insert/delete/lookup operations (3 numbers that sum to 100 in each case).
