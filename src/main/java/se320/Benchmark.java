@@ -14,9 +14,21 @@ public class Benchmark {
     public static void main(String[] args) {
 
         // actions
-        int reads = 15;
-        int inserts = 80;
-        int deletes = 5;
+        int reads = 100;
+        int inserts = 0;
+        int deletes = 0;
+
+        // print profile
+        System.out.printf("PROFILE: reads=%d, inserts=%d, deletes=%d%n",
+                  reads, inserts, deletes);
+
+        // 
+        try {
+            System.out.println("============Q4. VisualVM key to benchmark.============");
+            System.in.read();   
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // warmup start time
         long warmupStart = System.nanoTime();
